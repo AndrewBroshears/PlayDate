@@ -20,7 +20,7 @@ namespace PlayDate.Data
         public string ParkAddress { get; set; }
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset ModifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
 
         public virtual ICollection<Rating> Rating { get; set; } = new List<Rating>();
 

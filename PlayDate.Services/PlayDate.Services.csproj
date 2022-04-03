@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ParkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlayDate.Data\PlayDate.Data.csproj">
+      <Project>{2c172003-5573-409d-9e33-94995b7a8ff0}</Project>
+      <Name>PlayDate.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlayDate.Models\PlayDate.Models.csproj">
+      <Project>{bfeafcc9-7e58-4149-aab2-c37fe87cbf1e}</Project>
+      <Name>PlayDate.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
