@@ -54,8 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmenityService.cs" />
     <Compile Include="ParkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

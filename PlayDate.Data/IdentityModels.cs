@@ -33,6 +33,8 @@ namespace PlayDate.Data
         }
 
         public DbSet<Park> Parks { get; set; }
+        public DbSet<Amenity> Amenities { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

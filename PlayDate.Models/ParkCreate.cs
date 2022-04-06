@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlayDate.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,5 +14,11 @@ namespace PlayDate.Models
         public string ParkName { get; set; }
         [Required]
         public string ParkAddress { get; set; }
+
+        public int AmenityId { get; set; }
+        public virtual Amenity Amenity { get; set; }
+
+        public int RatingingId { get; set; }
+        public virtual Rating Rating { get; set; }
     }
 }

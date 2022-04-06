@@ -9,11 +9,12 @@ namespace PlayDate.Data
 {
     public class Amenity
     {
+        [Key]
         [Required]
         public int AmenityId { get; set; }
         [Required]
         public string AmenityType { get; set; }
 
-        ICollection<Park> Park { get; set; } = new List<Park>();
+        public ICollection<Park> Park { get; set; } = new List<Park>();
     }
 }

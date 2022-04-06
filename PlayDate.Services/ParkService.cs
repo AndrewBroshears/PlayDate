@@ -57,5 +57,60 @@ namespace PlayDate.Services
                 return query.ToArray();
             }
         }
+
+        //Read Detail Service
+        public ParkDetail GetParkById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Parks
+                        .Single(e => e.ParkId == id && e.OwnerId == _userId);
+                return
+                new ParkDetail
+                {
+                    ParkId = entity.ParkId,
+                    ParkName = entity.ParkName,
+                    ParkAddress = entity.ParkAddress,
+                    CreatedUtc = entity.CreatedUtc,
+                    ModifiedUtc = entity.ModifiedUtc
+                };
+            }
+        }
+
+        //Update Edit Service
+        public bool UpdatePark(ParkEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Parks
+                        .Single(e => e.ParkId == model.ParkId && e.OwnerId == _userId);
+
+                entity.ParkName = model.ParkName;
+                entity.ParkAddress = model.ParkAddress;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        //Delete Delete Service
+        public bool DeletePark(int parkId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Parks
+                        .Single(e => e.ParkId == parkId && e.OwnerId == _userId);
+
+                ctx.Parks.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
