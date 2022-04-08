@@ -8,5 +8,7 @@ namespace PlayDate.Models
 {
     public class AmenityDetail
     {
+        public int AmenityId { get; set; }
+        public string AmenityType { get; set; }
     }
 }

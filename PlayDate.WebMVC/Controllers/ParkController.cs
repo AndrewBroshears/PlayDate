@@ -122,5 +122,12 @@ namespace PlayDate.WebMVC.Controllers
             var service = new ParkService(userId);
             return service;
         }
+
+        private AmenityService CreateAmenityService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new AmenityService(userId);
+            return service;
+        }
     }
 }

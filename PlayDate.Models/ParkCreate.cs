@@ -18,7 +18,6 @@ namespace PlayDate.Models
         public int AmenityId { get; set; }
         public virtual Amenity Amenity { get; set; }
 
-        public int RatingingId { get; set; }
-        public virtual Rating Rating { get; set; }
+        //public ICollection<Rating> Ratings { get; set; }
     }
 }

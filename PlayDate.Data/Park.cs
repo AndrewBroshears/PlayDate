@@ -27,7 +27,8 @@ namespace PlayDate.Data
         public int AmenityId { get; set; }
         public virtual Amenity Amenity { get; set; }
 
-        public virtual ICollection<Rating> Rating { get; set; } = new List<Rating>();
+        public ICollection<Rating> Ratings { get; set; }
+
 
     }
 }

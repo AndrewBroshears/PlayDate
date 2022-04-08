@@ -16,8 +16,10 @@ namespace PlayDate.Data
         [Required]
         public int RatingStar { get; set; }
         [Required]
+        public string RatingComment { get; set; }
+        [Required]
         public Guid OwnerId { get; set; }
-
+        
         [ForeignKey(nameof(Park))]
         public int ParkId { get; set; }
         public virtual Park Park { get; set; }

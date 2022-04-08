@@ -14,7 +14,9 @@ namespace PlayDate.Data
         public int AmenityId { get; set; }
         [Required]
         public string AmenityType { get; set; }
+        [Required]
+        public Guid OwnerId { get; set; }
 
-        public ICollection<Park> Park { get; set; } = new List<Park>();
+        public ICollection<Park> Parks { get; set; } = new List<Park>();
     }
 }
