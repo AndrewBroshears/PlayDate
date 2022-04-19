@@ -1,4 +1,4 @@
-﻿@model PlayDate.Models.ParkDetail
+﻿@model PlayDate.Models.RatingDetail
 
 @{
     ViewBag.Title = "Details";
@@ -7,31 +7,23 @@
 <h2>Details</h2>
 
 <div>
-    <h4>ParkDetail</h4>
+    <h4>RatingDetail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ParkId)
+            @Html.DisplayNameFor(model => model.RatingId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ParkId)
+            @Html.DisplayFor(model => model.RatingId)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ParkName)
+            @Html.DisplayNameFor(model => model.RatingComment)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ParkName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ParkAddress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ParkAddress)
+            @Html.DisplayFor(model => model.RatingComment)
         </dd>
 
         <dt>
@@ -51,11 +43,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AmenityId)
+            @Html.DisplayNameFor(model => model.ParkId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AmenityId)
+            @Html.DisplayFor(model => model.ParkId)
         </dd>
 
     </dl>

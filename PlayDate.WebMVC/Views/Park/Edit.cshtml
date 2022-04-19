@@ -15,7 +15,13 @@
         <h4>ParkEdit</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ParkId)
+        <div class="form-group">
+            @Html.LabelFor(model => model.ParkId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ParkId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ParkId, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ParkName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -30,6 +36,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ParkAddress, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ParkAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AmenityId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.AmenityId, ViewData["Amenity"] as IEnumerable<SelectListItem>, null, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AmenityId, "", new { @class = "text-danger" })
             </div>
         </div>
 

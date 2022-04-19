@@ -10,7 +10,7 @@ namespace PlayDate.Models
     public class RatingDetail
     {
         public int RatingId { get; set; }
-        public int RatingStar { get; set; }
+        public RatingStar RatingStar { get; set; }
         public string RatingComment { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }

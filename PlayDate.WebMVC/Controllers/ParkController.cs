@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using PlayDate.Data;
 using PlayDate.Models;
 using PlayDate.Services;
 using System;
@@ -25,6 +26,12 @@ namespace PlayDate.WebMVC.Controllers
         //GET: Create Park
         public ActionResult Create()
         {
+            var ctx = new ApplicationDbContext();
+            ViewData["Amenity"] = ctx.Amenities.Select(amenity => new SelectListItem
+            {
+                Text = amenity.AmenityType,
+                Value = amenity.AmenityId.ToString()
+            }).ToArray();
             return View();
         }
 
@@ -33,6 +40,13 @@ namespace PlayDate.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ParkCreate model)
         {
+            var ctx = new ApplicationDbContext();
+            ViewData["Amenity"] = ctx.Amenities.Select(amenity => new SelectListItem
+            {
+                Text = amenity.AmenityType,
+                Value = amenity.AmenityId.ToString()
+            }).ToArray();
+
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateParkService();
@@ -58,6 +72,13 @@ namespace PlayDate.WebMVC.Controllers
 
         public ActionResult Edit(int id)
         {
+            var ctx = new ApplicationDbContext();
+            ViewData["Amenity"] = ctx.Amenities.Select(amenity => new SelectListItem
+            {
+                Text = amenity.AmenityType,
+                Value = amenity.AmenityId.ToString()
+            }).ToArray();
+
             var service = CreateParkService();
             var detail = service.GetParkById(id);
             var model =
@@ -74,15 +95,14 @@ namespace PlayDate.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ParkEdit model)
         {
-            if (!ModelState.IsValid) return View(model);
-
-            if(model.ParkId != id)
-            {
-                ModelState.AddModelError("", "Id Mismatch");
-                return View(model);
-            }
-
             var service = CreateParkService();
+
+            var ctx = new ApplicationDbContext();
+            ViewData["Amenity"] = ctx.Amenities.Select(amenity => new SelectListItem
+            {
+                Text = amenity.AmenityType,
+                Value = amenity.AmenityId.ToString()
+            }).ToArray();
 
             if (service.UpdatePark(model))
             {

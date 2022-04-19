@@ -11,7 +11,7 @@ namespace PlayDate.Models
     public class RatingCreate
     {
         [Required]
-        public int RatingStar { get; set; }
+        public RatingStar RatingStar { get; set; }
         [Required]
         public string RatingComment { get; set; }
         

@@ -13,7 +13,7 @@ namespace PlayDate.Models
         [Required]
         public int RatingId { get; set; }
         [Required]
-        public int RatingStar { get; set; }
+        public RatingStar RatingStar { get; set; }
         [Required]
         public string RatingComment { get; set; }
         

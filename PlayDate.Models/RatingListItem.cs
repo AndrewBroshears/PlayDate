@@ -10,7 +10,7 @@ namespace PlayDate.Models
     public class RatingListItem
     {
         public int RatingId { get; set; }
-        public int RatingStar { get; set; }
+        public RatingStar RatingStar { get; set; }
         public string RatingComment { get; set; }
 
         public int ParkId { get; set; }

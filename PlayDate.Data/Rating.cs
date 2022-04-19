@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace PlayDate.Data
 {
+    public enum RatingStar { Excellent, Great, Okay, Lacking, Terrible}
     public class Rating
     {
         [Key]
         [Required]
         public int RatingId { get; set; }
         [Required]
-        public int RatingStar { get; set; }
+        public RatingStar RatingStar { get; set; }
         [Required]
         public string RatingComment { get; set; }
         [Required]

@@ -56,17 +56,29 @@
   <ItemGroup>
     <Compile Include="Amenity.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202204022118272_InitialCreate.cs" />
-    <Compile Include="Migrations\202204022118272_InitialCreate.Designer.cs">
-      <DependentUpon>202204022118272_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202204150008355_update.cs" />
+    <Compile Include="Migrations\202204150008355_update.Designer.cs">
+      <DependentUpon>202204150008355_update.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204031629038_InitialMigration.cs" />
-    <Compile Include="Migrations\202204031629038_InitialMigration.Designer.cs">
-      <DependentUpon>202204031629038_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202204150144286_updatedamenityFK.cs" />
+    <Compile Include="Migrations\202204150144286_updatedamenityFK.Designer.cs">
+      <DependentUpon>202204150144286_updatedamenityFK.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204031710020_IndexView.cs" />
-    <Compile Include="Migrations\202204031710020_IndexView.Designer.cs">
-      <DependentUpon>202204031710020_IndexView.cs</DependentUpon>
+    <Compile Include="Migrations\202204180238387_DropDownParkCreate.cs" />
+    <Compile Include="Migrations\202204180238387_DropDownParkCreate.Designer.cs">
+      <DependentUpon>202204180238387_DropDownParkCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204180250261_dropdowntest.cs" />
+    <Compile Include="Migrations\202204180250261_dropdowntest.Designer.cs">
+      <DependentUpon>202204180250261_dropdowntest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204180313418_ViewsUpdate.cs" />
+    <Compile Include="Migrations\202204180313418_ViewsUpdate.Designer.cs">
+      <DependentUpon>202204180313418_ViewsUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204190342502_UpdateRatingViews.cs" />
+    <Compile Include="Migrations\202204190342502_UpdateRatingViews.Designer.cs">
+      <DependentUpon>202204190342502_UpdateRatingViews.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Park.cs" />
@@ -78,14 +90,23 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204022118272_InitialCreate.resx">
-      <DependentUpon>202204022118272_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204150008355_update.resx">
+      <DependentUpon>202204150008355_update.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204031629038_InitialMigration.resx">
-      <DependentUpon>202204031629038_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204150144286_updatedamenityFK.resx">
+      <DependentUpon>202204150144286_updatedamenityFK.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204031710020_IndexView.resx">
-      <DependentUpon>202204031710020_IndexView.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204180238387_DropDownParkCreate.resx">
+      <DependentUpon>202204180238387_DropDownParkCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204180250261_dropdowntest.resx">
+      <DependentUpon>202204180250261_dropdowntest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204180313418_ViewsUpdate.resx">
+      <DependentUpon>202204180313418_ViewsUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204190342502_UpdateRatingViews.resx">
+      <DependentUpon>202204190342502_UpdateRatingViews.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

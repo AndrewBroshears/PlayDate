@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -112,12 +118,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -237,17 +237,25 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Park\Index.cshtml" />
-    <Content Include="Views\Park\Create.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffSet.cshtml" />
     <Content Include="Views\Park\Details.cshtml" />
     <Content Include="Views\Park\Edit.cshtml" />
     <Content Include="Views\Park\Delete.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffSet.cshtml" />
+    <Content Include="Views\Park\Index.cshtml" />
+    <Content Include="Views\Park\Create.cshtml" />
+    <Content Include="Views\Amenity\Index.cshtml" />
+    <Content Include="Views\Amenity\Create.cshtml" />
+    <Content Include="Views\Amenity\Details.cshtml" />
+    <Content Include="Views\Amenity\Edit.cshtml" />
+    <Content Include="Views\Amenity\Delete.cshtml" />
+    <Content Include="Views\Rating\Index.cshtml" />
+    <Content Include="Views\Rating\Create.cshtml" />
+    <Content Include="Views\Rating\Details.cshtml" />
+    <Content Include="Views\Rating\Edit.cshtml" />
+    <Content Include="Views\Rating\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Amenity\" />
-    <Folder Include="Views\Rating\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

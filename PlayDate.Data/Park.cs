@@ -26,6 +26,7 @@ namespace PlayDate.Data
         [ForeignKey(nameof(Amenity))]
         public int AmenityId { get; set; }
         public virtual Amenity Amenity { get; set; }
+        //public string AmenityType { get; set; }
 
         public ICollection<Rating> Ratings { get; set; }
 

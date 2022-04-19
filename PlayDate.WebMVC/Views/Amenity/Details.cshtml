@@ -1,0 +1,34 @@
+﻿@model PlayDate.Models.AmenityDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AmenityDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AmenityId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmenityId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmenityType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmenityType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

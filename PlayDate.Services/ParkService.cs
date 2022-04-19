@@ -32,7 +32,6 @@ namespace PlayDate.Services
             
             using (var ctx = new ApplicationDbContext())
             {
-
                 ctx.Parks.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -54,7 +53,7 @@ namespace PlayDate.Services
                                     ParkId = e.ParkId,
                                     ParkName = e.ParkName,
                                     ParkAddress = e.ParkAddress,
-                                    Amenity = e.Amenity,
+                                    AmenityId = e.AmenityId,
                                     Ratings = e.Ratings
                                 }
                         );
@@ -77,7 +76,7 @@ namespace PlayDate.Services
                     ParkId = entity.ParkId,
                     ParkName = entity.ParkName,
                     ParkAddress = entity.ParkAddress,
-                    Amenity = entity.Amenity,
+                    AmenityId = entity.AmenityId,
                     Ratings = entity.Ratings,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc
