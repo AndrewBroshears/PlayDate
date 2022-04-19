@@ -3,29 +3,28 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>PlayDate</h1>
+    <p class="lead">Play Date is on the cusp of reinventing the way people enjoy recreational activity. Stay up to date as Play Date continues to revolutionize the modernization of your local parks.</p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            PlayDate is currently giving 1st Gen users the ability to create their local park's profile to be listed and searchable within the context of PlayDate's web  application. Do you want to include the main amenity associated with your park? Do you want to give your park a rating? You now have the ability to encapsulate the spirit of your local park. Follow the link below to get started.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <a class="btn btn-default" href="@Url.Action("Index", null, new { area = string.Empty, controller = "Park" }, Request.Url.Scheme)">
+            <span>Park Profile &raquo;</span>
+        </a>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Amenities??</h2>
+        <p>Don't see the proper amenities that would best showcase your park? No worries, you can now create that amenity and later assign it to your park. Click the link below.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Amenity" }, Request.Url.Scheme)">Apply Amenity &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Park Rater 1.0</h2>
+        <p>Still in the early stages of developement, here at PlayDate we think parks deserve a rating system that make the best recreational areas stand out for attraction. With Park Rater 1.0 you have the ability to leave a comment to let others know what you think about the park. Stay posted for more updates as we continue to grow the Park Rater system! Want to rate a park now? Follow the link below.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Rating" }, Request.Url.Scheme)">Rate Parks &raquo;</a></p>
     </div>
 </div>
