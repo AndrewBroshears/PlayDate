@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Park Homepage</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Park", "Create", new { @class = "nav-link active" })
 </p>
 <table class="table">
     <tr>
@@ -42,8 +42,8 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ParkId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ParkId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ParkId })
+            @Html.ActionLink("Details", "Details", new { id = item.ParkId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ParkId }) |
         </td>
     </tr>
 }
