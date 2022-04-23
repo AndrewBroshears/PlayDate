@@ -18,19 +18,17 @@
                
                 @Html.ActionLink("PlayDate", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="collapse navbar-collapse" id="navbarColor02">
+            <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link active" })
-                            <span class="visually-hidden">(current)</span>
-                        </a>
+                        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link active" })
+                        <span class="visually-hidden">(current)</span>
                     </li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li class="nav-item">@Html.ActionLink("Parks", "Index", "Park", new { area = "" }, new { @class = "nav-link active" } )</li>
-                        <li class="nav-item">@Html.ActionLink("Amenities", "Index", "Amenity", new { area = "" }, new { @class = "nav-link active" })</li>
+                        <li class="nav-item">@Html.ActionLink("Parks", "Index", "Park", new { area = "" }, new { @class = "nav-link active" })</li>
                         <li class="nav-item">@Html.ActionLink("Ratings", "Index", "Rating", new { area = "" }, new { @class = "nav-link active" })</li>
-
+                        <li class="nav-item">@Html.ActionLink("Amenities", "Index", "Amenity", new { area = "" }, new { @class = "nav-link active" })</li>
                     }
                     <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link active" })</li>
                     <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link active" })</li>

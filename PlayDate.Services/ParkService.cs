@@ -10,9 +10,9 @@ namespace PlayDate.Services
 {
     public class ParkService
     {
-        private readonly Guid _userId;
+        private readonly string _userId;
 
-        public ParkService(Guid userId)
+        public ParkService(string userId)
         {
             _userId = userId;
         }
@@ -23,7 +23,7 @@ namespace PlayDate.Services
             var entity =
                 new Park()
                 {
-                    OwnerId = _userId,
+                    UserId = _userId,
                     ParkName = model.ParkName,
                     ParkAddress = model.ParkAddress,
                     AmenityId = model.AmenityId,
@@ -45,7 +45,7 @@ namespace PlayDate.Services
                 var query =
                     ctx
                         .Parks
-                        .Where(e => e.OwnerId == _userId)
+                        .Where(e => e.UserId == _userId)
                         .Select(
                             e =>
                                 new ParkListItem
@@ -69,7 +69,7 @@ namespace PlayDate.Services
                 var entity =
                     ctx
                         .Parks
-                        .Single(e => e.ParkId == id && e.OwnerId == _userId);
+                        .Single(e => e.ParkId == id && e.UserId == _userId);
                 return
                 new ParkDetail
                 {
@@ -92,7 +92,7 @@ namespace PlayDate.Services
                 var entity =
                     ctx
                         .Parks
-                        .Single(e => e.ParkId == model.ParkId && e.OwnerId == _userId);
+                        .Single(e => e.ParkId == model.ParkId && e.UserId == _userId);
 
                 entity.ParkName = model.ParkName;
                 entity.ParkAddress = model.ParkAddress;
@@ -111,7 +111,7 @@ namespace PlayDate.Services
                 var entity =
                     ctx
                         .Parks
-                        .Single(e => e.ParkId == parkId && e.OwnerId == _userId);
+                        .Single(e => e.ParkId == parkId && e.UserId == _userId);
 
                 ctx.Parks.Remove(entity);
 

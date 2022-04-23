@@ -15,8 +15,7 @@ namespace PlayDate.WebMVC.Controllers
         // GET: Rating
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new RatingService(userId);
+            var service = CreateRatingService();
             var model = service.GetRatings();
 
             return View(model);
@@ -32,6 +31,12 @@ namespace PlayDate.WebMVC.Controllers
                 Value = park.ParkId.ToString()
             }).ToArray();
 
+            /*ViewData["RatingStar"] = ctx.Ratings.Select(rating => new SelectListItem
+            {
+                Text = rating.RatingStar.ToString(),
+                Value = rating.RatingStar.ToString()
+            }).ToArray();*/
+
             return View();
         }
 
@@ -46,6 +51,12 @@ namespace PlayDate.WebMVC.Controllers
                 Text = park.ParkName,
                 Value = park.ParkId.ToString()
             }).ToArray();
+            
+            /*ViewData["RatingStar"] = ctx.Ratings.Select(rating => new SelectListItem
+            {
+                Text = rating.RatingStar.ToString(),
+                Value = rating.RatingStar.ToString()
+            }).ToArray();*/
 
             if (!ModelState.IsValid) return View(model);
 
@@ -53,7 +64,7 @@ namespace PlayDate.WebMVC.Controllers
 
             if (service.CreateRating(model))
             {
-                TempData["SaveResult"] = "Your Rating was created.";
+                ViewData["SaveResult"] = "Your Rating was created.";
                 return RedirectToAction("Index");
             };
 
@@ -79,6 +90,12 @@ namespace PlayDate.WebMVC.Controllers
                 Value = park.ParkId.ToString()
             }).ToArray();
 
+            /*ViewData["RatingStar"] = ctx.Ratings.Select(rating => new SelectListItem
+            {
+                Text = rating.RatingStar.ToString(),
+                Value = rating.RatingStar.ToString()
+            }).ToArray();*/
+
             var service = CreateRatingService();
             var detail = service.GetRatingById(id);
             var model =
@@ -102,6 +119,12 @@ namespace PlayDate.WebMVC.Controllers
                 Value = park.ParkId.ToString()
             }).ToArray();
 
+            /*ViewData["RatingStar"] = ctx.Ratings.Select(rating => new SelectListItem
+            {
+                Text = rating.RatingStar.ToString(),
+                Value = rating.
+            }).ToArray();*/
+
             if (!ModelState.IsValid) return View(model);
 
             if (model.RatingId != id)
@@ -114,7 +137,7 @@ namespace PlayDate.WebMVC.Controllers
 
             if (service.UpdateRating(model))
             {
-                TempData["SaveResult"] = "Your Rating was updated.";
+                ViewData["SaveResult"] = "Your Rating was updated.";
                 return RedirectToAction("Index");
             }
 
@@ -139,23 +162,19 @@ namespace PlayDate.WebMVC.Controllers
         {
             var service = CreateRatingService();
             service.DeleteRating(id);
-            TempData["SaveResult"] = "Your Rating was deleted";
+            ViewData["SaveResult"] = "Your Rating was deleted";
 
             return RedirectToAction("Index");
         }
 
         private RatingService CreateRatingService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new RatingService(userId);
-            return service;
+            return new RatingService(User.Identity.GetUserId());
         }
 
         private ParkService CreateParkService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ParkService(userId);
-            return service;
+            return new ParkService(User.Identity.GetUserId());
         }
     }
 }

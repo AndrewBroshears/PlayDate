@@ -6,46 +6,63 @@
 
 <h2>Park Homepage</h2>
 
-<p>
-    @Html.ActionLink("Create New Park", "Create", new { @class = "nav-link active" })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ParkId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParkName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParkAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AmenityId)
-        </th>
-        <th></th>
-    </tr>
+<div class="alert alert-success fade in" role="alert">
+    @ViewData["SaveResult"]
+    <button type="button" class="close" data-dismiss="alert">
+        <span>&times;</span>
+    </button>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParkId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParkName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParkAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AmenityId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ParkId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ParkId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ParkId }) |
-        </td>
-    </tr>
-}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.ParkName)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.ParkAddress)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.AmenityId)
+            </th>
+            @*<th scope="col">
+                @Html.DisplayNameFor(model => model.Ratings)
+            </th>*@
+        </tr>
+    </thead>
 
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td onclick="location.href = '@Url.Action("Details", "Park",  new {id=item.ParkId})'">
+                @Html.DisplayFor(modelItem => item.ParkName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParkAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.AmenityId)
+            </td>
+            @*<td>
+                @Html.DisplayFor(model => item.Ratings)
+            </td>*@
+            <td>
+                <button type="button" class="btn btn-warning"
+                        onclick="location.href='@Url.Action("Edit", "Park", new { id=item.ParkId })'">
+                    Edit
+                </button>
+                <button type="button" class="btn btn-danger"
+                        onclick="location.href ='@Url.Action("Delete", "Park", new { id = item.ParkId })'">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    }
 </table>
+<p>
+    <button type="button" class="btn btn-success"
+    onclick="location.href='@Url.Action("Create", "Park")'">
+        Create New Park
+    </button>
+</p>

@@ -16,8 +16,7 @@ namespace PlayDate.WebMVC.Controllers
         // GET: Park
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ParkService(userId);
+            var service = CreateParkService();
             var model = service.GetParks();
 
             return View(model);
@@ -26,6 +25,7 @@ namespace PlayDate.WebMVC.Controllers
         //GET: Create Park
         public ActionResult Create()
         {
+
             var ctx = new ApplicationDbContext();
             ViewData["Amenity"] = ctx.Amenities.Select(amenity => new SelectListItem
             {
@@ -53,7 +53,7 @@ namespace PlayDate.WebMVC.Controllers
 
             if (service.CreatePark(model))
             {
-                TempData["SaveResult"] = "Your Park was created.";
+                ViewData["SaveResult"] = "Your Park was created.";
                 return RedirectToAction("Index");
             };
 
@@ -106,7 +106,7 @@ namespace PlayDate.WebMVC.Controllers
 
             if (service.UpdatePark(model))
             {
-                TempData["SaveResult"] = "Your Park was updated.";
+                ViewData["SaveResult"] = "Your Park was updated.";
                 return RedirectToAction("Index");
             }
 
@@ -131,23 +131,19 @@ namespace PlayDate.WebMVC.Controllers
         {
             var service = CreateParkService();
             service.DeletePark(id);
-            TempData["SaveResult"] = "Your Park was deleted";
+            ViewData["SaveResult"] = "Your Park was deleted";
 
             return RedirectToAction("Index");
         }
 
         private ParkService CreateParkService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ParkService(userId);
-            return service;
+            return new ParkService(User.Identity.GetUserId());
         }
 
         private AmenityService CreateAmenityService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new AmenityService(userId);
-            return service;
+            return new AmenityService(User.Identity.GetUserId());
         }
     }
 }

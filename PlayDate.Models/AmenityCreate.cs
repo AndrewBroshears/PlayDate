@@ -9,7 +9,7 @@ namespace PlayDate.Models
 {
     public class AmenityCreate
     {
-        [Required]
+        [Required, Display(Name ="Amenity Type")]
         public string AmenityType { get; set; }
 
     }

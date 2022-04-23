@@ -14,8 +14,7 @@ namespace PlayDate.WebMVC.Controllers
         // GET: Amenity
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new AmenityService(userId);
+            var service = CreateAmenityService();
             var model = service.GetAmenities();
 
             return View(model);
@@ -37,7 +36,7 @@ namespace PlayDate.WebMVC.Controllers
 
             if (service.CreateAmenity(model))
             {
-                TempData["SaveResult"] = "Your Amenity was created.";
+                ViewData["SaveResult"] = "Your Amenity was created.";
                 return RedirectToAction("Index");
             };
 
@@ -84,7 +83,7 @@ namespace PlayDate.WebMVC.Controllers
 
             if (service.UpdateAmenity(model))
             {
-                TempData["SaveResult"] = "Your Amenity was updated.";
+                ViewData["SaveResult"] = "Your Amenity was updated.";
                 return RedirectToAction("Index");
             }
 
@@ -109,23 +108,19 @@ namespace PlayDate.WebMVC.Controllers
         {
             var service = CreateAmenityService();
             service.DeleteAmenity(id);
-            TempData["SaveResult"] = "Your Amenity was deleted";
+            ViewData["SaveResult"] = "Your Amenity was deleted";
 
             return RedirectToAction("Index");
         }
 
         private AmenityService CreateAmenityService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new AmenityService(userId);
-            return service;
+            return new AmenityService(User.Identity.GetUserId());
         }
 
         private ParkService ParkService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ParkService(userId);
-            return service;
+            return new ParkService(User.Identity.GetUserId());
         }
     }
 }

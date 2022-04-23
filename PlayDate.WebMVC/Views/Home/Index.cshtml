@@ -4,27 +4,36 @@
 
 <div class="jumbotron">
     <h1>PlayDate</h1>
-    <p class="lead">Play Date is on the cusp of reinventing the way people enjoy recreational activity. Stay up to date as Play Date continues to revolutionize the modernization of your local parks.</p>
+    <p class="lead">Reinventing Recreation</p>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            PlayDate is currently giving 1st Gen users the ability to create their local park's profile to be listed and searchable within the context of PlayDate's web  application. Do you want to include the main amenity associated with your park? Do you want to give your park a rating? You now have the ability to encapsulate the spirit of your local park. Follow the link below to get started.
+<div class="card text-white bg-primary mb-3" style="max-width: contain;">
+    <div class="card-header">In The Know</div>
+    <div class="card-body">
+        <h4 class="card-title">First Gen Users!</h4>
+        <p class="card-text">>PlayDate is currently giving 1st Gen users the ability to create their local park's profile to be listed and searchable within the context of PlayDate's web  application. Do you want to include the main amenity associated with your park? Do you want to give your park a rating? You now have the ability to encapsulate the spirit of your local park. Follow the link below to get started.
         </p>
         <a class="btn btn-default" href="@Url.Action("Index", null, new { area = string.Empty, controller = "Park" }, Request.Url.Scheme)">
             <span>Park Profile &raquo;</span>
         </a>
     </div>
-    <div class="col-md-4">
-        <h2>Amenities??</h2>
-        <p>Don't see the proper amenities that would best showcase your park? No worries, you can now create that amenity and later assign it to your park. Click the link below.</p>
-        <p><a class="btn btn-default" href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Amenity" }, Request.Url.Scheme)">Apply Amenity &raquo;</a></p>
+</div>
+<div class="card text-white bg-primary mb-3" style="max-width: contain;">
+    <div class="card-header">Get Your Amenities Here</div>
+    <div class="card-body">
+        <h4 class="card-title">Amenities???</h4>
+        <p>>Don't see the proper amenities that would best showcase your park? No worries, you can now create that amenity and later assign it to your park. Click the link below.
+        </p>
+        <a class="btn btn-default" href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Amenity" }, Request.Url.Scheme)">Apply Amenity &raquo;</a>
     </div>
-    <div class="col-md-4">
-        <h2>Park Rater 1.0</h2>
-        <p>Still in the early stages of developement, here at PlayDate we think parks deserve a rating system that make the best recreational areas stand out for attraction. With Park Rater 1.0 you have the ability to leave a comment to let others know what you think about the park. Stay posted for more updates as we continue to grow the Park Rater system! Want to rate a park now? Follow the link below.</p>
-        <p><a class="btn btn-default" href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Rating" }, Request.Url.Scheme)">Rate Parks &raquo;</a></p>
+</div>
+<div class="card text-white bg-info mb-3" style="max-width: contain;">
+    <div class="card-header">Rator Creator</div>
+    <div class="card-body">
+        <h4 class="card-title">Update: Park Rater 1.0</h4>
+        <p>
+            >Still in the early stages of developement, here at PlayDate we think parks deserve a rating system that make the best recreational areas stand out for attraction. With Park Rater 1.0 you have the ability to leave a comment to let others know what you think about the park. Stay posted for more updates as we continue to grow the Park Rater system! Want to rate a park now? Follow the link below.
+        </p>
+        <a class="btn btn-default" href="@Url.Action("Index", null, new { area = string.Empty, Controller = "Rating" }, Request.Url.Scheme)">Rate Parks &raquo;</a></p>
     </div>
 </div>

@@ -4,42 +4,45 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Rating Homepage</h2>
+<h2 class="align-self-center">Rating Homepage</h2>
+
+
+<div class="alert alert-success fade in" role="alert">
+    @ViewData["SaveResult"]
+    <button type="button" class="close" data-dismiss="alert">
+        <span>&times;</span>
+    </button>
+</div>
+
+
+@foreach(var item in Model)
+{
+
+    <div class="list-group">
+        <a href="@Url.Action("Details", "Rating", new { id = item.RatingId})" class="list-group-item list-group-item-action flex-column align-items-center">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">
+                    @Html.DisplayNameFor(model => model.ParkId):
+                @Html.DisplayFor(modelItem => item.ParkId)
+            </h5>
+            <small>@Html.DisplayNameFor(model => model.RatingId):@Html.DisplayFor(modelItem => item.RatingId)</small>
+            </div>
+            <p class="mb-1">@Html.DisplayFor(modelItem => item.RatingComment)</p>
+            <small>@Html.DisplayFor(modelItem => item.RatingStar)</small>
+        </a>
+    </div>
 
 <p>
-    @Html.ActionLink("Create New Rating", "Create")
+    <button type="button" class="btn btn-warning"
+            onclick="location.href='@Url.Action("Edit", "Rating", new { id=item.RatingId })'">
+        Edit
+    </button>
+    <button type="button" class="btn btn-danger"
+            onclick="location.href ='@Url.Action("Delete", "Rating", new { id = item.RatingId })'">
+        Delete
+    </button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RatingId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RatingComment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParkId)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RatingId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RatingComment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParkId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RatingId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RatingId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RatingId })
-        </td>
-    </tr>
 }
+<button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "Rating")'">Create New Rating
+</button>
 
-</table>

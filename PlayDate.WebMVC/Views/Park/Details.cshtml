@@ -57,8 +57,14 @@
         </dd>
 
     </dl>
-</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    <button type="button" class="btn btn-warning"
+            onclick="location.href='@Url.Action("Edit", "Park", new { id = Model.ParkId })'">
+        Edit
+    </button>
+    <button type="button" class="btn btn-primary"
+            onclick="location.href='@Url.Action("Index", "Park")'">
+        Back to Park Homepage
+    </button>
 </p>
+</div>

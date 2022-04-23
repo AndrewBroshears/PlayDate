@@ -12,6 +12,7 @@ namespace PlayDate.Models
         [Required]
         public int AmenityId { get; set; }
         [Required]
+        [Display(Name ="Amenity")]
         public string AmenityType { get; set; }
     }
 }

@@ -11,13 +11,14 @@ namespace PlayDate.Data
     public class Park
     {
         [Key]
-        [Required]
+        [Required, Display(Name ="Park ID")]
         public int ParkId { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
-        [Required]
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
+        [Required, Display(Name ="Park Name")]
         public string ParkName { get; set; }
-        [Required]
+        [Required, Display(Name ="Address")]
         public string ParkAddress { get; set; }
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

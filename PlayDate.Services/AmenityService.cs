@@ -10,9 +10,9 @@ namespace PlayDate.Services
 {
     public class AmenityService
     {
-        private readonly Guid _userId;
+        private readonly string _userId;
 
-        public AmenityService(Guid userId)
+        public AmenityService(string userId)
         {
             _userId = userId;
         }
@@ -23,7 +23,7 @@ namespace PlayDate.Services
             var entity =
                 new Amenity()
                 {
-                    OwnerId = _userId,
+                    UserId = _userId,
                     AmenityType = model.AmenityType
                 };
             using(var ctx = new ApplicationDbContext())
@@ -41,7 +41,7 @@ namespace PlayDate.Services
                 var query =
                     ctx
                         .Amenities
-                        .Where(e => e.OwnerId == _userId)
+                        .Where(e => e.UserId == _userId)
                         .Select(
                         e =>
                             new AmenityListItem
@@ -62,7 +62,7 @@ namespace PlayDate.Services
                 var entity =
                     ctx
                         .Amenities
-                        .Single(e => e.AmenityId == id && e.OwnerId == _userId);
+                        .Single(e => e.AmenityId == id && e.UserId == _userId);
                 return new AmenityDetail
                 {
                     AmenityId = entity.AmenityId,
@@ -79,7 +79,7 @@ namespace PlayDate.Services
                 var entity =
                     ctx
                        .Amenities
-                       .Single(e => e.AmenityId == model.AmenityId && e.OwnerId == _userId);
+                       .Single(e => e.AmenityId == model.AmenityId && e.UserId == _userId);
 
                 entity.AmenityId = model.AmenityId;
                 entity.AmenityType = model.AmenityType;
@@ -96,7 +96,7 @@ namespace PlayDate.Services
                 var entity =
                     ctx
                         .Amenities
-                        .Single(e => e.AmenityId == AmenityId && e.OwnerId == _userId);
+                        .Single(e => e.AmenityId == AmenityId && e.UserId == _userId);
                 ctx.Amenities.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

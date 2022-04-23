@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Amenity.cs" />
+    <Compile Include="ApplicationUser.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202204150008355_update.cs" />
     <Compile Include="Migrations\202204150008355_update.Designer.cs">
@@ -79,6 +80,14 @@
     <Compile Include="Migrations\202204190342502_UpdateRatingViews.cs" />
     <Compile Include="Migrations\202204190342502_UpdateRatingViews.Designer.cs">
       <DependentUpon>202204190342502_UpdateRatingViews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204210127189_UpdatedDatabase.cs" />
+    <Compile Include="Migrations\202204210127189_UpdatedDatabase.Designer.cs">
+      <DependentUpon>202204210127189_UpdatedDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204230248002_updatedRatingStar.cs" />
+    <Compile Include="Migrations\202204230248002_updatedRatingStar.Designer.cs">
+      <DependentUpon>202204230248002_updatedRatingStar.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Park.cs" />
@@ -107,6 +116,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204190342502_UpdateRatingViews.resx">
       <DependentUpon>202204190342502_UpdateRatingViews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204210127189_UpdatedDatabase.resx">
+      <DependentUpon>202204210127189_UpdatedDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204230248002_updatedRatingStar.resx">
+      <DependentUpon>202204230248002_updatedRatingStar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

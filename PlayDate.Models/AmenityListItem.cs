@@ -10,8 +10,10 @@ namespace PlayDate.Models
     public class AmenityListItem
     {
         [Key]
+        [Display(Name ="Amenity ID")]
         public int AmenityId { get; set; }
         [Required]
+        [Display(Name ="Amenity")]
         public string AmenityType { get; set; }
     }
 }

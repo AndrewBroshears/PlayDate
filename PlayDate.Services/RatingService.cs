@@ -10,9 +10,9 @@ namespace PlayDate.Services
 {
     public class RatingService
     {
-        private readonly Guid _userId;
+        private readonly string _userId;
 
-        public RatingService(Guid userId)
+        public RatingService(string userId)
         {
             _userId = userId;
         }
@@ -23,7 +23,7 @@ namespace PlayDate.Services
             var entity =
                 new Rating()
                 {
-                    OwnerId = _userId,
+                    UserId = _userId,
                     RatingStar = model.RatingStar,
                     RatingComment = model.RatingComment,
                     ParkId = model.ParkId,
@@ -43,7 +43,7 @@ namespace PlayDate.Services
                 var query =
                     ctx
                         .Ratings
-                        .Where(e => e.OwnerId == _userId)
+                        .Where(e => e.UserId == _userId)
                         .Select(
                             e =>
                             new RatingListItem
@@ -66,7 +66,7 @@ namespace PlayDate.Services
                 var entity =
                     ctx
                         .Ratings
-                        .Single(e => e.RatingId == id && e.OwnerId == _userId);
+                        .Single(e => e.RatingId == id && e.UserId == _userId);
                 return new RatingDetail
                 {
                     RatingId = entity.RatingId,
@@ -85,7 +85,7 @@ namespace PlayDate.Services
                 var entity =
                     ctx
                         .Ratings
-                        .Single(e => e.RatingId == model.RatingId && e.OwnerId == _userId);
+                        .Single(e => e.RatingId == model.RatingId && e.UserId == _userId);
                
                 entity.RatingId = model.RatingId;
                 entity.RatingStar = model.RatingStar;
@@ -104,7 +104,7 @@ namespace PlayDate.Services
                 var entity =
                     ctx
                         .Ratings
-                        .Single(e => e.RatingId == ratingId && e.OwnerId == _userId);
+                        .Single(e => e.RatingId == ratingId && e.UserId == _userId);
                 ctx.Ratings.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

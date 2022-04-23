@@ -12,11 +12,11 @@ namespace PlayDate.Models
     {
         [Required]
         public int ParkId { get; set; }
-        [Required]
+        [Required, Display(Name ="Park Name")]
         public string ParkName { get; set; }
-        [Required]
+        [Required, Display(Name ="Park Address")]
         public string ParkAddress { get; set; }
-
+        [Display(Name ="Amenity")]
         public int AmenityId { get; set; }
         public virtual Amenity Amenity { get; set; }
         

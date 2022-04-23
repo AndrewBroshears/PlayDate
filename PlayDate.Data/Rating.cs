@@ -8,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace PlayDate.Data
 {
-    public enum RatingStar { Excellent, Great, Okay, Lacking, Terrible}
+    public enum RatingStar { 
+        Excellent=1, 
+        Great=2, 
+        Okay=3, 
+        Lacking=4, 
+        Terrible=5}
     public class Rating
     {
         [Key]
@@ -18,9 +23,10 @@ namespace PlayDate.Data
         public RatingStar RatingStar { get; set; }
         [Required]
         public string RatingComment { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
-        
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
+
         [ForeignKey(nameof(Park))]
         public int ParkId { get; set; }
         public virtual Park Park { get; set; }
